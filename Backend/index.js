@@ -14,11 +14,6 @@ app.post('/submit-form', async(req, res) => {
   const { name, email } = req.body;
   console.log('Form data received:', name, email);
 
-  const userDet=await mongoose.create({
-     name,
-     email
-  })
-
   res.json({ message: 'Form submitted successfully!' });
 });
 
