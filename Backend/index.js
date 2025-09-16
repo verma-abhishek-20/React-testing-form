@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors';
-import user from './Models/user';
+import user from './Models/user.js';
 const app = express();
 const PORT = 5000;
 
