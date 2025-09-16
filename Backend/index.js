@@ -10,7 +10,7 @@ app.use(express.json());
 
 mongoose.connect("mongodb://localhost:27017/ForRough");
 
-app.post('/submit-form', async(req, res) => {
+app.post('/submit-form', (req, res) => {
   const { name, email } = req.body;
   console.log('Form data received:', name, email);
 
