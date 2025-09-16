@@ -1,19 +1,21 @@
-// server.js
 import express from 'express'
 import cors from 'cors';
-import mongoose from 'mongoose';
+import user from './Models/user';
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/ForRough");
-
-app.post('/submit-form', (req, res) => {
+app.post('/submit-form', async(req, res) => {
   const { name, email } = req.body;
   console.log('Form data received:', name, email);
 
+  const userDet=await user.create({
+    name,
+    email
+  })
+  console.log(userDet)
   res.json({ message: 'Form submitted successfully!' });
 });
 
