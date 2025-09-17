@@ -4,7 +4,9 @@ import user from './Models/user.js';
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: '*'  // Sabhi origins ko allow karta hai. Production me specific origin set karein.
+}));
 app.use(express.json());
 
 app.post('/submit-form', async(req, res) => {
